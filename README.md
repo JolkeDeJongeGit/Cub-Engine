@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://raw.githubusercontent.com/JolkeDeJongeGit/Cub-Engine/Engine/Assets/Textures/Icons/Icon.jpg" alt="drawing" style="border-radius: 10px;" width="150"/>
+<img src="https://raw.githubusercontent.com/JolkeDeJongeGit/Cub-Engine/main/Engine/Assets/Textures/Icons/icon.jpg" alt="drawing" style="border-radius: 10px;" width="150"/>
 
 # Cub Engine - A Game Engine
 </div>
