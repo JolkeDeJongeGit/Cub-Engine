@@ -6,7 +6,7 @@ Set(CMAKE_CXX_STANDARD 17)
 Set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 #add External Libary
-#add_subdirectory(External/Assimp)
+add_subdirectory(External/Assimp)
 add_subdirectory(External/Glfw)
 
 add_library(${PROJECT_NAME} Source/Private/Engine.cpp)
@@ -16,7 +16,7 @@ target_include_directories(${PROJECT_NAME}
         $<INSTALL_INTERFACE:Source/Public>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source/Public>
     PRIVATE
-    #assimp
+    assimp
     glfw
 )
 
@@ -27,7 +27,7 @@ target_link_libraries(${PROJECT_NAME}
     PUBLIC
 
     PRIVATE
-    #assimp
+    assimp
     glfw
 ) 
 
