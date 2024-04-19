@@ -11,10 +11,19 @@ add_subdirectory(External/Glfw)
 
 add_library(${PROJECT_NAME} Source/Private/Engine.cpp)
 
+if (MSVC)
+    set_source_files_properties(Source/Private/Engine.cpp
+        PROPERTIES
+        COMPILE_FLAGS "/YcSource/Public/Engine.h"
+        )
+endif (MSVC)
+
 target_include_directories(${PROJECT_NAME}
     PUBLIC
         $<INSTALL_INTERFACE:Source/Public>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source/Public>
+        $<INSTALL_INTERFACE:Source/Public/Core>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source/Public/Core>
     PRIVATE
     #assimp
     glfw
@@ -31,6 +40,10 @@ target_link_libraries(${PROJECT_NAME}
 target_compile_options(${PROJECT_NAME} PRIVATE
   $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
   $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic -Werror>
-)if( MSVC )
+)
+
+if( MSVC )
     add_compile_options(/MP)
 endif()
+
+add_compile_definitions(CUB_BUILD_DLL)
