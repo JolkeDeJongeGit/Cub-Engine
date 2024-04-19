@@ -5,6 +5,9 @@ Set(CMAKE_CXX_STANDARD 17)
 
 add_executable(${PROJECT_NAME} Source/main.cpp)
 
+GROUPSOURCES(${CMAKE_CURRENT_SOURCE_DIR}/Source/Public Source/Public)
+GROUPSOURCES(${CMAKE_CURRENT_SOURCE_DIR}/Source/Private Source/Private)
+
 target_link_libraries(${PROJECT_NAME} Engine)
 target_include_directories(${PROJECT_NAME} PRIVATE Engine)
 

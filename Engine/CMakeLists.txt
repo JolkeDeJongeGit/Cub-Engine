@@ -6,7 +6,7 @@ Set(CMAKE_CXX_STANDARD 17)
 Set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 #add External Libary
-#add_subdirectory(External/Assimp)
+add_subdirectory(External/Assimp)
 add_subdirectory(External/Glfw)
 add_subdirectory(External/Spdlog)
 
@@ -17,16 +17,19 @@ target_include_directories(${PROJECT_NAME}
         $<INSTALL_INTERFACE:Source/Public>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source/Public>
     PRIVATE
-    #assimp
+    assimp
     glfw
     spdlog
 )
+
+GROUPSOURCES(${CMAKE_CURRENT_SOURCE_DIR}/Source/Public Source/Public)
+GROUPSOURCES(${CMAKE_CURRENT_SOURCE_DIR}/Source/Private Source/Private)
 
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
 
     PRIVATE
-    #assimp
+    assimp
     glfw
     spdlog
 ) 
