@@ -15,3 +15,16 @@ Cub Engine is an open-source game engine focused on Windows applications.
 * 📦 **Assets** - [GLTF 2.0](https://www.khronos.org/gltf/) [Assimp](https://www.khronos.org/gltf/)
 
 ## How to build
+Create build directory
+```bash
+mkdir build && cd build
+```
+Bind cmake to main dir
+```bash
+cmake ..
+```
+
+Build cmake
+```bash
+cmake --build .
+```
