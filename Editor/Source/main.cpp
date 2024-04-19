@@ -2,5 +2,8 @@
 
 int main(int argc, char** argv) 
 {
+    *argv = ""; 
     std::cout << "Hello World!" << std::endl; 
+
+    return argc;
 }
