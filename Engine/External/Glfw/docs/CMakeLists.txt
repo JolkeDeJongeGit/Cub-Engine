@@ -47,7 +47,7 @@ else()
                        VERBATIM)
 
     add_custom_target(docs ALL SOURCES "html/index.html")
-    set_target_properties(docs PROPERTIES FOLDER "GLFW3")
+    set_target_properties(docs PROPERTIES FOLDER "External/GLFW3")
 
     if (GLFW_INSTALL)
         install(DIRECTORY "${GLFW_BINARY_DIR}/docs/html"
