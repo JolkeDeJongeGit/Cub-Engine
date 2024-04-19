@@ -8,6 +8,7 @@ Set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 #add External Libary
 #add_subdirectory(External/Assimp)
 add_subdirectory(External/Glfw)
+add_subdirectory(External/Spdlog)
 
 add_library(${PROJECT_NAME} Source/Private/Engine.cpp)
 
@@ -18,6 +19,7 @@ target_include_directories(${PROJECT_NAME}
     PRIVATE
     #assimp
     glfw
+    spdlog
 )
 
 target_link_libraries(${PROJECT_NAME}
@@ -26,6 +28,7 @@ target_link_libraries(${PROJECT_NAME}
     PRIVATE
     #assimp
     glfw
+    spdlog
 ) 
 
 target_compile_options(${PROJECT_NAME} PRIVATE
