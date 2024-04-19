@@ -6,12 +6,14 @@ Set(CMAKE_CXX_STANDARD 17)
 Set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 #add External Libary
-#add_subdirectory(External/Assimp)
+add_subdirectory(External/Assimp)
 add_subdirectory(External/Glfw)
 
 Set(PROJECT_SOURCES
     Source/Private/Core/Application.cpp
 )
+
+
 
 
 add_library(${PROJECT_NAME} 
@@ -29,6 +31,9 @@ if (MSVC)
         PROPERTIES
         COMPILE_FLAGS "/YuSource/Public/Engine.h"
         )
+
+    add_compile_options(/MP)
+
 endif (MSVC)
 
 target_include_directories(${PROJECT_NAME}
@@ -38,7 +43,7 @@ target_include_directories(${PROJECT_NAME}
         $<INSTALL_INTERFACE:Source/Public/Core>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source/Public/Core>
     PRIVATE
-    #assimp
+    assimp
     glfw
 )
 
@@ -46,7 +51,7 @@ target_link_libraries(${PROJECT_NAME}
     PUBLIC
 
     PRIVATE
-    #assimp
+    assimp
     glfw
 ) 
 
@@ -54,9 +59,5 @@ target_compile_options(${PROJECT_NAME} PRIVATE
   $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
   $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic -Werror>
 )
-
-if( MSVC )
-    add_compile_options(/MP)
-endif()
 
 add_compile_definitions(CUB_BUILD_DLL)
