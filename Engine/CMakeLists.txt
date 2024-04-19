@@ -9,12 +9,25 @@ Set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 #add_subdirectory(External/Assimp)
 add_subdirectory(External/Glfw)
 
-add_library(${PROJECT_NAME} Source/Private/Engine.cpp)
+Set(PROJECT_SOURCES
+    Source/Private/Core/Application.cpp
+)
+
+
+add_library(${PROJECT_NAME} 
+    ${PROJECT_SOURCES}
+    Source/Private/Engine.cpp
+)
 
 if (MSVC)
     set_source_files_properties(Source/Private/Engine.cpp
         PROPERTIES
         COMPILE_FLAGS "/YcSource/Public/Engine.h"
+        )
+
+    set_source_files_properties(${PROJECT_SOURCES}
+        PROPERTIES
+        COMPILE_FLAGS "/YuSource/Public/Engine.h"
         )
 endif (MSVC)
 
