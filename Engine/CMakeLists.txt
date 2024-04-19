@@ -20,6 +20,9 @@ target_include_directories(${PROJECT_NAME}
     glfw
 )
 
+GROUPSOURCES(${CMAKE_CURRENT_SOURCE_DIR}/Source/Public Source/Public)
+GROUPSOURCES(${CMAKE_CURRENT_SOURCE_DIR}/Source/Private Source/Private)
+
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
 
