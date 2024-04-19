@@ -7,3 +7,8 @@ add_executable(${PROJECT_NAME} Source/main.cpp)
 
 target_link_libraries(${PROJECT_NAME} Engine)
 target_include_directories(${PROJECT_NAME} PRIVATE Engine)
+
+target_compile_options(${PROJECT_NAME} PRIVATE
+  $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
+  $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic -Werror>
+)
