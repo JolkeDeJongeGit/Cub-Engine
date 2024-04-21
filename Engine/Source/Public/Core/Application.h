@@ -1,3 +1,5 @@
+#pragma once
+
 namespace Cub
 {
 	class CUB_API Application

@@ -1,3 +1,6 @@
+#pragma once 
+#include "Application.h"
+
 extern Cub::Application* Cub::CreateApp();
 
 int main()

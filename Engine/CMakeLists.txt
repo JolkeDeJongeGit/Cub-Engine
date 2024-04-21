@@ -13,23 +13,21 @@ Set(PROJECT_SOURCES
     Source/Private/Core/Application.cpp
 )
 
-
-
-
-add_library(${PROJECT_NAME} 
+add_library(${PROJECT_NAME} SHARED 
     ${PROJECT_SOURCES}
     Source/Private/Engine.cpp
+    Source/Public/Engine.h
 )
 
 if (MSVC)
     set_source_files_properties(Source/Private/Engine.cpp
         PROPERTIES
-        COMPILE_FLAGS "/YcSource/Public/Engine.h"
+        COMPILE_FLAGS "/YcEngine.h"
         )
 
     set_source_files_properties(${PROJECT_SOURCES}
         PROPERTIES
-        COMPILE_FLAGS "/YuSource/Public/Engine.h"
+        COMPILE_FLAGS "/YuEngine.h"
         )
 
     add_compile_options(/MP)
