@@ -11,6 +11,8 @@ add_subdirectory(External/Glfw)
 
 Set(PROJECT_SOURCES
     Source/Private/Core/Application.cpp
+    Source/Public/Core/Application.h
+    Source/Public/Core/Layer.h
 )
 
 add_library(${PROJECT_NAME} SHARED 

@@ -12,6 +12,7 @@ namespace Cub
 
 		inline bool IsRunning() const { return m_isRunning; }
 	private:
+		std::vector<std::unique_ptr<class ILayer>> m_layers;
 		bool m_isRunning = true;
 	};
 
