@@ -15,7 +15,7 @@ Set(PROJECT_SOURCES
     Source/Public/Core/Layer.h
 )
 
-add_library(${PROJECT_NAME} SHARED 
+add_library(${PROJECT_NAME} STATIC 
     ${PROJECT_SOURCES}
     Source/Private/Engine.cpp
     Source/Public/Engine.h
