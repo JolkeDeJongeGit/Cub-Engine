@@ -2,14 +2,14 @@
 
 // C++ Libraries
 #include <string>
-#include <vector>
 #include <unordered_map>
 
 #include <memory>
+#include <cassert>
 
+#ifdef _DEBUG
+#define CUB_ASSERT(check, msg, ...) { if(!(check)) { /*ERROR(msg, __VA_ARGS__);*/ __debugbreak(); } }
 
-#ifdef CUB_BUILD_DLL
-#define CUB_API __declspec(dllexport)
 #else
-#define CUB_API __declspec(dllimport)
+#define CUB_ASSERT(check, msg, ...)
 #endif
