@@ -8,6 +8,9 @@ namespace Cub
     class ILayer
     {
     public:
+        ILayer() = default;
+        virtual ~ILayer() = default;
+
         /// <summary>
         /// This function gets called when the layer is attached to the list
         /// </summary>
@@ -21,7 +24,7 @@ namespace Cub
         /// <summary>
         /// This function will get called every frame
         /// </summary>
-        virtual void OnUpdate(/*float deltaTime*/) = 0;
+        virtual void OnUpdate(float deltaTime) = 0;
 
         /// <summary>
         /// This function gets called when the layer is detached from the list
