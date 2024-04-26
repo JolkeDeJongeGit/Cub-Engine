@@ -1,10 +1,22 @@
-#include <iostream>
+#include "Engine.h"
+#include "Entry.h"
 
-
-int main(int argc, char** argv) 
+class Editor : public Cub::Application
 {
-    *argv = ""; 
-    std::cout << "Hello World!" << std::endl; 
+public: 
+    Editor()
+    {
 
-    return argc;
+    }
+
+    ~Editor()
+    {
+
+    }
+};
+
+
+Cub::Application* Cub::CreateApp()
+{
+    return new Editor();
 }

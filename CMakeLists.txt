@@ -36,8 +36,9 @@ set (CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE 		"${BIN_DIR}")
 set (CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE 		"${BIN_DIR}")
 
 # Enable folder structure in the IDE
-SET_PROPERTY(GLOBAL PROPERTY USE_FOLDERS ON)
 Set(CMAKE_CXX_STANDARD 17)
+
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 add_subdirectory(App)
 add_subdirectory(Engine)

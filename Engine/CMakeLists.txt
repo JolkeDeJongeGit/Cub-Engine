@@ -10,12 +10,39 @@ add_subdirectory(External/Assimp)
 add_subdirectory(External/Glfw)
 add_subdirectory(External/Spdlog)
 
-add_library(${PROJECT_NAME} Source/Private/Engine.cpp)
+Set(PROJECT_SOURCES
+    Source/Private/Core/Application.cpp
+    Source/Public/Core/Application.h
+    Source/Public/Core/Layer.h
+)
+
+add_library(${PROJECT_NAME} STATIC 
+    ${PROJECT_SOURCES}
+    Source/Private/Engine.cpp
+    Source/Public/Engine.h
+)
+
+if (MSVC)
+    set_source_files_properties(Source/Private/Engine.cpp
+        PROPERTIES
+        COMPILE_FLAGS "/YcEngine.h"
+        )
+
+    set_source_files_properties(${PROJECT_SOURCES}
+        PROPERTIES
+        COMPILE_FLAGS "/YuEngine.h"
+        )
+
+    add_compile_options(/MP)
+
+endif (MSVC)
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC
         $<INSTALL_INTERFACE:Source/Public>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source/Public>
+        $<INSTALL_INTERFACE:Source/Public/Core>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source/Public/Core>
     PRIVATE
     assimp
     glfw
@@ -38,3 +65,5 @@ target_compile_options(${PROJECT_NAME} PRIVATE
   $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
   $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic -Werror>
 )
+
+add_compile_definitions(CUB_BUILD_DLL)

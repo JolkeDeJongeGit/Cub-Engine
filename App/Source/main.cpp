@@ -1,6 +1,22 @@
-#include <iostream>
+#include "Engine.h"
+#include "Entry.h"
 
-int main(int argc, char** argv) 
+class Sandbox : public Cub::Application
 {
-    std::cout << "Hello World!" << std::endl; 
+public:
+    Sandbox()
+    {
+
+    }
+
+    ~Sandbox()
+    {
+
+    }
+};
+
+
+Cub::Application* Cub::CreateApp()
+{
+    return new Sandbox();
 }
