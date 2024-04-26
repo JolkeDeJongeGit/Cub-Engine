@@ -45,10 +45,12 @@ target_include_directories(${PROJECT_NAME}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source/Public>
         $<INSTALL_INTERFACE:Source/Public/Core>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source/Public/Core>
+     
     PRIVATE
+    spdlog
     assimp
     glfw
-    spdlog
+  
 )
 
 GROUPSOURCES(${CMAKE_CURRENT_SOURCE_DIR}/Source/Public Source/Public)
@@ -56,11 +58,13 @@ GROUPSOURCES(${CMAKE_CURRENT_SOURCE_DIR}/Source/Private Source/Private)
 
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
+    spdlog
 
     PRIVATE
+   
     assimp
     glfw
-    spdlog
+    
 ) 
 
 target_compile_options(${PROJECT_NAME} PRIVATE

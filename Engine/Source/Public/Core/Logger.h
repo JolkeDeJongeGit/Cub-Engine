@@ -1,8 +1,10 @@
 #pragma once
+#pragma warning ( push )
+#pragma warning ( disable : 4996)
 #include "spdlog/spdlog.h"
+#pragma warning ( pop )
 
-
-namespace cub
+namespace Cub
 {
 	class Log
 	{
