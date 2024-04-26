@@ -14,6 +14,8 @@ Set(PROJECT_SOURCES
     Source/Private/Core/Application.cpp
     Source/Public/Core/Application.h
     Source/Public/Core/Layer.h
+    Source/Private/Core/Logger.cpp
+    Source/Public/Core/Logger.h
 )
 
 add_library(${PROJECT_NAME} STATIC 
