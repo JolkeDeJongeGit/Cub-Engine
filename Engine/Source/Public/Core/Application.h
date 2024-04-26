@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Layer.h"
-#include <vector>
 
 namespace Cub
 {
@@ -29,12 +28,12 @@ namespace Cub
 
 	inline void Application::AddLayer(ILayer* layer)
 	{
-		CUB_ASSERT(layer != nullptr, "Layer is nullptr");  
+		CUB_ASSERT(layer != nullptr, "Layer is nullptr");
 
 		layer->OnAttach();
 		m_layers.push_back(layer);
 	}
-
+	
 	inline void Application::RemoveLayer(ILayer* layer)
 	{
 		CUB_ASSERT(layer != nullptr, "Layer is nullptr");

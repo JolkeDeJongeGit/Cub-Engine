@@ -6,6 +6,7 @@
 
 #include <memory>
 #include <cassert>
+#include <vector>
 
 #ifdef _DEBUG
 #define CUB_ASSERT(check, msg, ...) { if(!(check)) { /*ERROR(msg, __VA_ARGS__);*/ __debugbreak(); } }
