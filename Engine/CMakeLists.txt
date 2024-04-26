@@ -8,11 +8,14 @@ Set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 #add External Libary
 add_subdirectory(External/Assimp)
 add_subdirectory(External/Glfw)
+add_subdirectory(External/Spdlog)
 
 Set(PROJECT_SOURCES
     Source/Private/Core/Application.cpp
     Source/Public/Core/Application.h
     Source/Public/Core/Layer.h
+    Source/Private/Core/Logger.cpp
+    Source/Public/Core/Logger.h
 )
 
 add_library(${PROJECT_NAME} STATIC 
@@ -42,9 +45,12 @@ target_include_directories(${PROJECT_NAME}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source/Public>
         $<INSTALL_INTERFACE:Source/Public/Core>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source/Public/Core>
+     
     PRIVATE
+    spdlog
     assimp
     glfw
+  
 )
 
 GROUPSOURCES(${CMAKE_CURRENT_SOURCE_DIR}/Source/Public Source/Public)
@@ -52,10 +58,13 @@ GROUPSOURCES(${CMAKE_CURRENT_SOURCE_DIR}/Source/Private Source/Private)
 
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
+    spdlog
 
     PRIVATE
+   
     assimp
     glfw
+    
 ) 
 
 target_compile_options(${PROJECT_NAME} PRIVATE
