@@ -19,7 +19,7 @@ namespace Cub
         /// <summary>
         /// This function will only becalled when you enable debug
         /// </summary>
-        virtual void OnDebug() = 0;
+        virtual void OnDebug() { };
 
         /// <summary>
         /// This function will get called every frame
