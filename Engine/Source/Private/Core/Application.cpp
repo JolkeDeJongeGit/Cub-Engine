@@ -24,10 +24,13 @@ namespace Cub
 			auto currentTime = std::chrono::high_resolution_clock::now();
 			std::chrono::duration<float> deltaTime = currentTime - previousTime;
 
-			// - Updating all the layers
-			for (auto& layer : m_layers)
+			if (!m_isMinimized)
 			{
-				layer->OnUpdate(deltaTime.count());
+				// - Updating all the layers
+				for (auto& layer : m_layers)
+				{
+					layer->OnUpdate(deltaTime.count());
+				}
 			}
 
 			previousTime = currentTime;

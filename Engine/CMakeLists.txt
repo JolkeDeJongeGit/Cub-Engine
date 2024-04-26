@@ -16,6 +16,8 @@ Set(PROJECT_SOURCES
     Source/Public/Core/Layer.h
     Source/Private/Core/Logger.cpp
     Source/Public/Core/Logger.h
+    Source/Public/Platform/Window.h
+    Source/Private/Platform/Window.cpp
 )
 
 add_library(${PROJECT_NAME} STATIC 
@@ -48,6 +50,9 @@ target_include_directories(${PROJECT_NAME}
      
     PRIVATE
     spdlog
+    $<INSTALL_INTERFACE:Source/Public/Platform>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Source/Public/Platform>
+
     assimp
     glfw
   
