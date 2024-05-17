@@ -9,8 +9,8 @@ namespace Cub
 		uint16_t Height;
 
 		WindowProps(const std::string& title = "Cub Editor",
-			uint8_t width = 1920,
-			uint8_t height = 1080)
+			uint16_t width = 1920,
+			uint16_t height = 1080)
 			: Title(title), Width(width), Height(height)
 		{
 		}

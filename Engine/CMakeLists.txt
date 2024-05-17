@@ -18,8 +18,8 @@ Set(PROJECT_SOURCES
     Source/Public/Core/Logger.h
     Source/Public/Platform/Window.h
     Source/Private/Platform/Window.cpp
-    Source/Public/Platform/Vulkan/Window.h
-    Source/Private/Platform/Vulkan/Window.cpp
+    Source/Public/Platform/Vulkan/Vulkan_Window.h
+    Source/Private/Platform/Vulkan/Vulkan_Window.cpp
 )
 
 add_library(${PROJECT_NAME} STATIC 
