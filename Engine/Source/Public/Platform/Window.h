@@ -22,7 +22,8 @@ namespace Cub
 		virtual ~IWindow() = default;
 
 		virtual void OnUpdate() = 0;
-
+		virtual void OnClose() = 0;
+		
 		virtual uint32_t GetWidth() const = 0;
 		virtual uint32_t GetHeight() const = 0;
 
